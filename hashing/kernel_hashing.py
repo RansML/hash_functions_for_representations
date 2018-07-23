@@ -674,10 +674,13 @@ class KernelHashing:
 
 if __name__ == '__main__':
     #
+    # these are the important configuration parameters to play with
     num_kernel_computations = 100
     num_hash_functions = 100
     # If RMM is False, RkNN is used, i.e. Random K Nearest Neighbors Hashing.
     is_rnd_max_margin = True
+    num_data_per_set = 20
+    #
     #
     kh_obj = KernelHashing(
         num_hash_functions=num_hash_functions,
@@ -704,7 +707,7 @@ if __name__ == '__main__':
     set1_points, set2_points = kh_obj.sample_random_subsets(
         num_kernel_computations=num_kernel_computations,
         is_set2=True,
-        num_data_per_set=20,
+        num_data_per_set=num_data_per_set,
     )
     #
     print 'computing hash codes ...'
